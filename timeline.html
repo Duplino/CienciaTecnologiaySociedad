@@ -66,17 +66,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <!-- Loading indicator -->
-                    <div id="timeline-loading" class="text-center py-5">
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="visually-hidden">Cargando línea de tiempo...</span>
+                    <!-- Embedded external timeline -->
+                    <div class="timeline-embed-remote mt-4">
+                        <h4 class="fw-bold mb-3">Línea de Tiempo (Embebida externa)</h4>
+                        <div>
+                            <iframe src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=v2%3A2PACX-1vSKUEPH-yOTM60DvSyX-Xr9uI1JBE44xJq6rEuWlhXpenltjEbD3CbfFJ69R-U3Vxq-k6gbF0gFGd9o&font=Default&lang=es&initial_zoom=2&start_at_slide=1&width=100%25&height=800&timenav_height_percentage=50" width="100%" height="900" style="border:0; min-height:600px;" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"></iframe>
                         </div>
-                        <p class="mt-3 text-muted">Cargando línea de tiempo...</p>
-                    </div>
-                    
-                    <!-- Timeline container -->
-                    <div class="timeline-container">
-                        <div id="timeline-embed" style="width: 100%; height: 600px;"></div>
                     </div>
                 </div>
             </div>
@@ -158,130 +153,5 @@
     <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
-    
-    <script>
-        // Datos de ejemplo para la línea de tiempo
-        const timelineData = {
-            "title": {
-                "media": {
-                    "url": "",
-                    "caption": "",
-                    "credit": ""
-                },
-                "text": {
-                    "headline": "Línea de Tiempo del Libro",
-                    "text": "<p>Explora los eventos cronológicos más importantes narrados en el libro</p>"
-                }
-            },
-            "events": [
-                {
-                    "media": {
-                        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop",
-                        "caption": "El comienzo de la historia"
-                    },
-                    "start_date": {
-                        "year": "1984",
-                        "month": "04",
-                        "day": "04"
-                    },
-                    "text": {
-                        "headline": "Primer Evento Importante",
-                        "text": "<p>Descripción detallada del primer evento crucial en la narrativa del libro. Este momento marca el inicio de la historia principal.</p>"
-                    }
-                },
-                {
-                    "media": {
-                        "url": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&h=400&fit=crop",
-                        "caption": "Un momento decisivo"
-                    },
-                    "start_date": {
-                        "year": "1984",
-                        "month": "06",
-                        "day": "15"
-                    },
-                    "text": {
-                        "headline": "El Conflicto Central",
-                        "text": "<p>El desarrollo del conflicto principal que dará forma a toda la historia. Los personajes enfrentan su primer gran desafío.</p>"
-                    }
-                },
-                {
-                    "media": {
-                        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop",
-                        "caption": "La resolución se acerca"
-                    },
-                    "start_date": {
-                        "year": "1984",
-                        "month": "09",
-                        "day": "23"
-                    },
-                    "text": {
-                        "headline": "Punto de Inflexión",
-                        "text": "<p>Un momento crucial donde los eventos toman un rumbo inesperado. Las decisiones tomadas aquí determinarán el desenlace.</p>"
-                    }
-                },
-                {
-                    "media": {
-                        "url": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=400&fit=crop",
-                        "caption": "El clímax de la historia"
-                    },
-                    "start_date": {
-                        "year": "1984",
-                        "month": "12",
-                        "day": "31"
-                    },
-                    "text": {
-                        "headline": "Resolución Final",
-                        "text": "<p>El desenlace de todos los conflictos presentados a lo largo de la narrativa. Un final que redefine todo lo anterior.</p>"
-                    }
-                }
-            ]
-        };
-
-        let timeline;
-
-        // Inicializar timeline cuando se carga la página
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                document.getElementById('timeline-loading').style.display = 'none';
-                timeline = initializeTimeline(timelineData);
-            }, 1000);
-        });
-
-        // Funciones de control del timeline
-        function resetTimeline() {
-            if (timeline) {
-                timeline.goToStart();
-                utils.showToast('Timeline reiniciado', 'success');
-            }
-        }
-
-        function zoomIn() {
-            if (timeline) {
-                timeline.setZoom(timeline.getZoom() + 1);
-                utils.showToast('Zoom aumentado', 'info');
-            }
-        }
-
-        function zoomOut() {
-            if (timeline) {
-                timeline.setZoom(timeline.getZoom() - 1);
-                utils.showToast('Zoom reducido', 'info');
-            }
-        }
-
-        // Back to top button
-        window.addEventListener('scroll', function() {
-            const backToTopBtn = document.getElementById('back-to-top');
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'block';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        });
-
-        document.getElementById('back-to-top').addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
 </body>
 </html>
